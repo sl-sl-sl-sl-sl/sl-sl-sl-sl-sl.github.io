@@ -87,7 +87,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h1><p><strong>Unicode</strong> 是21位编码, 不是16位, 被分为17个平面 <a href="https://en.wikipedia.org/wiki/Plane_&#41;Unicode&#41;" target="_blank" rel="external">Plane</a>, 每个平面有65536个字符. 0号平面叫做基本多文种平面 (Basic Multilingual Plane, BMP), 涵盖了几乎所有字符, 除了emoji.</p>
+        <h1 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h1><p><code>Unicode</code> 是21位编码, 不是16位, 被分为17个平面 <a href="https://en.wikipedia.org/wiki/Plane_&#41;Unicode&#41;" target="_blank" rel="external">Plane</a>, 每个平面有65536个字符. 0号平面叫做基本多文种平面 (Basic Multilingual Plane, BMP), 涵盖了几乎所有字符, 除了 <code>emoji</code>.</p>
 <h3 id="码点"><a href="#码点" class="headerlink" title="码点"></a>码点</h3><p>单一码点: 一般字符都是单一码点</p>
 <p>组合码点: 由两个码点组合而成</p>
 <p><code>é(U+00E9) 可是看成 e(U+0065) 和 ´(U+0301) 组成</code></p>
@@ -95,7 +95,7 @@
 <p><code>A(U+0041),    A(U+0410)</code></p>
 <p>相容等价(compatibility equivalence): 相同的字符, 但在不同使用范围有不同的意义    </p>
 <p><code>ff(U+FB00),  f(U+0066) f(U+0066)</code></p>
-<h3 id="正规形式"><a href="#正规形式" class="headerlink" title="正规形式"></a>正规形式</h3><p>在Unicode里, 判断字符串的等价性并不是一个简单概念, 为了鉴定标准等价与相容等价, Unicode定义了正规化(normalization)算法. 正规化一个字符串的意思是：为了能使它与另一个正规化了的字符串进行二进制比较(binary-compare)</p>
+<h3 id="正规形式"><a href="#正规形式" class="headerlink" title="正规形式"></a>正规形式</h3><p>在 <code>Unicode</code> 里, 判断字符串的等价性并不是一个简单概念, 为了鉴定标准等价与相容等价, <code>Unicode</code> 定义了正规化(normalization)算法. 正规化一个字符串的意思是：为了能使它与另一个正规化了的字符串进行二进制比较(binary-compare)</p>
 <table>
 <thead>
 <tr>
@@ -127,17 +127,17 @@
 </tr>
 </tbody>
 </table>
-<p>仅仅是为了比较的话, 先把字符串正规化成分解形式(D)还是合成形式(C)并不重要, 但是C包含两个步骤,先分解再合成, 所有D更快, Unicode联盟推荐用C的方式存储, 这是为了兼容旧的编码系统. </p>
-<h3 id="字形变体"><a href="#字形变体" class="headerlink" title="字形变体"></a>字形变体</h3><p>Unicode提供一个叫做变体序列(variation sequences)的机制. 一个基准字符加上256个变体选择符<br>    emoji的样式就是变体序列, 例: 彩色的伞与黑白的伞  ☔️ (U+2614 U+FE0F), ☔︎ (U+2614 U+FE0E)</p>
-<h3 id="UTF-32"><a href="#UTF-32" class="headerlink" title="UTF-32"></a>UTF-32</h3><p>UTF-32每个码点上使用整32位, 每一个UTF-32都可以直接表示对应的码点, 但是从未在实际中使用, 因为每个字符占用4字节太浪费控件</p>
-<p>##UTF-16 与 代理对 (Surrogate Pairs)<br>UTF-16是一种长度可变的编码, 基本多文中平面(BMP)中每一个码点都直接与一个码元相映射. 其他平面(plane)都是两个16位码元来编码的, 这合起来表示一个码点的码元就叫代理对.</p>
-<p>为了避免使用UTF-16编码的字符串字节序列产生歧义, Unicode限制了U+0800到U+DFFF范围内的编码用于UTF-16, 这个范围外的序列为代理对的一部分. UTF-16下, U+0FFFF是编码最高值</p>
+<p>仅仅是为了比较的话, 先把字符串正规化成分解形式(D)还是合成形式(C)并不重要, 但是C包含两个步骤,先分解再合成, 所有D更快, <code>Unicode</code>联盟推荐用C的方式存储, 这是为了兼容旧的编码系统. </p>
+<h3 id="字形变体"><a href="#字形变体" class="headerlink" title="字形变体"></a>字形变体</h3><p><code>Unicode</code>提供一个叫做变体序列(variation sequences)的机制. 一个基准字符加上256个变体选择符<br>    <code>emoji</code>的样式就是变体序列, 例: 彩色的伞与黑白的伞  ☔️ (U+2614 U+FE0F), ☔︎ (U+2614 U+FE0E)</p>
+<h3 id="UTF-32"><a href="#UTF-32" class="headerlink" title="UTF-32"></a>UTF-32</h3><p><code>UTF-32</code> 每个码点上使用整32位, 每一个 <code>UTF-32</code> 都可以直接表示对应的码点, 但是从未在实际中使用, 因为每个字符占用4字节太浪费控件</p>
+<p>##UTF-16 与 代理对 (Surrogate Pairs)<br><code>UTF-16</code> 是一种长度可变的编码, 基本多文中平面(BMP)中每一个码点都直接与一个码元相映射. 其他平面(plane)都是两个16位码元来编码的, 这合起来表示一个码点的码元就叫代理对.</p>
+<p>为了避免使用 <code>UTF-16</code> 编码的字符串字节序列产生歧义, <code>Unicode</code> 限制了 <code>U+0800</code> 到 <code>U+DFFF</code> 范围内的编码用于 <code>UTF-16</code>, 这个范围外的序列为代理对的一部分. <code>UTF-16</code> 下, <code>U+0FFFF</code> 是编码最高值</p>
 <h3 id="字节顺序"><a href="#字节顺序" class="headerlink" title="字节顺序"></a>字节顺序</h3><p>在内存里存储的字符串, 大多数实现方式采用自己平台的CPU字节序(endianness), 而在硬盘存储和网络传输中, UTF8 语序在字符串的开头插入一个字节顺序标记(Byte Order Mask, BOM). 字节顺序标记是一个值为U+FEff的码元, 通过检查文件的头两个字节, 解码器就可以识别出其字节顺序. Unicode把高字节顺序(big-endian byte order)定为默认情况.</p>
 <p>##UTF-8 (Ken Thompson 和 Rob Pike)</p>
-<p>UTF-8 使用1~4个字节来编码一个码点. 从0到127的这些码点直接映射成1个字节(与ASCII完全相同), 接下来的1920歌码点映射成2个字节, BMP里剩下的码点需要3个字节. Unicode的其他平面里的码点则需要4个字节. UTF-8是基于8位的码元的, 因此不需要关心字节顺序.</p>
-<p>UTF-8 成为存储和交流 Unicode 文本方面的最佳编码, 由于其有效率的空间使用(仅就西方语言来讲)，以及不需要操心字节顺序, 它现在也已经是文件格式、网络协议以及 Web API 领域里事实上的标准了.</p>
+<p><code>UTF-8</code> 使用1~4个字节来编码一个码点. 从0到127的这些码点直接映射成1个字节(与ASCII完全相同), 接下来的1920歌码点映射成2个字节, BMP里剩下的码点需要3个字节. <code>Unicode</code> 的其他平面里的码点则需要4个字节. <code>UTF-8</code> 是基于8位的码元的, 因此不需要关心字节顺序.</p>
+<p><code>UTF-8</code> 成为存储和交流 <code>Unicode</code> 文本方面的最佳编码, 由于其有效率的空间使用(仅就西方语言来讲)，以及不需要操心字节顺序, 它现在也已经是文件格式、网络协议以及 Web API 领域里事实上的标准了.</p>
 <h3 id="长度"><a href="#长度" class="headerlink" title="长度"></a>长度</h3><p>基本多稳重平面外的字符:</p>
-<p>随着emoji被引入Unicode, 经常会遇到代理对</p>
+<p>随着emoji被引入<code>Unicode</code>, 经常会遇到代理对</p>
 <p><code>[🌍 length] == 2  true</code></p>
 <p>直接计算字符串在UTF-32编码下所需要的字节数, 再除以4</p>
 <p><code>[🌍 lengthOfBytesUsingEncoding:UTF32StringEncoding]/4 == 1 true</code></p>
@@ -145,9 +145,9 @@
 <p><code>如果字母 é 是以分解形式(e + ´)编码的，算作两个码元</code></p>
 <p>变体序列:</p>
 <p><code>他们和分解形式的组合字符序列一样</code></p>
-<h3 id="NSString-Unicode"><a href="#NSString-Unicode" class="headerlink" title="NSString + Unicode"></a>NSString + Unicode</h3><p>NSString 完全建立在Unicode之上, CFString也包含了NSString的底层实现.</p>
+<h3 id="NSString-Unicode"><a href="#NSString-Unicode" class="headerlink" title="NSString + Unicode"></a>NSString + Unicode</h3><p>NSString 完全建立在 <code>Unicode</code> 之上, <code>CFString</code> 也包含了 <code>NSString</code> 的底层实现.</p>
 <p><code>typedef unsigned short unichar</code></p>
-<p><code>unichar</code>为16位无符号整形, 不够用来表示21Unicode字符.</p>
+<p><code>unichar</code> 为16位无符号整形, 不够用来表示21位 <code>Unicode</code> 字符.</p>
 <pre><code>- (unichar)characterAtIndex:     
 
 NSString *string = @&quot;12🌍45&quot;;    // 🌍2个码元Unicode
@@ -213,15 +213,15 @@ Log:
      ff is equal to ﬀ
 </code></pre><p> 不考虑等价关系, 指示比较字符串 compare:options 指定 NSLiteralSearch 会有更快的速度</p>
 <h3 id="从文件和网络读取文本"><a href="#从文件和网络读取文本" class="headerlink" title="从文件和网络读取文本"></a>从文件和网络读取文本</h3><p>当知道字符编码类型时, <code>-[NSString initWithData:encoding:]</code> 使用这个方法实例化字符串, 但是这个方法不提供错误信息.</p>
-<p>虽然文本文件本身不包含编码信息, 但 NSString 会通过查看扩展文件属性 (extented file attributes)或者规律试探(UTF-8文件里不会出现某些特定的二进制序列)猜测来确定文件的编码, 可以使用 <code>-[NSString initWithContentsOfURL:encoding:error:]</code> 这个方法，来从编码已知的文件里读取文本。</p>
+<p>虽然文本文件本身不包含编码信息, 但 <code>NSString</code> 会通过查看扩展文件属性 (extented file attributes)或者规律试探(UTF-8文件里不会出现某些特定的二进制序列)猜测来确定文件的编码, 可以使用 <code>-[NSString initWithContentsOfURL:encoding:error:]</code> 这个方法，来从编码已知的文件里读取文本。</p>
 <p>如果不得不猜测文件的编码:</p>
 <ol>
 <li>试试这两个方法：<code>stringWithContentsOfFile:usedEncoding:error:</code> 或者 <code>initWithContentsOfFile:usedEncoding:error:</code> （或者这两个方法参数为 URL 的等价方法）。 这些方法会尝试猜测资源的编码，如果猜测成功，会以引用的形式带回所用的编码。</li>
 <li>如果 1 失败了，试着用 UTF-8 读取资源。</li>
-<li>如果 2 失败了，试试合适的老的编码。 这里「合适的」取决于具体情况。它可以是默认的 C 语言字符串编码，也可以是 ISO 或者 Windows Latin 1 编码，亦或者是其它的，取决于你的数据来源。</li>
-<li>最终，还可以试试 <code>Application Kit</code> 里 <code>NSAttributedString</code> 类的载入方法（比如：<code>initWithFileURL:options:documentAttributes:error:</code>）。这些方法会尝试纯文本文件，然后返回使用的编码。可以用这些方法打开任意的文档。如果你的程序并不是专业处理文本的程序，这些方法也值得考虑。对于 Foundation 级别的工具，或者不是自然语言的文本来说，这些方法可能不太合适。</li>
+<li>如果 2 失败了，试试合适的老的编码。 这里「合适的」取决于具体情况。它可以是默认的 C 语言字符串编码，也可以是 <code>ISO</code> 或者 <code>Windows Latin 1</code> 编码，亦或者是其它的，取决于你的数据来源。</li>
+<li>最终，还可以试试 <code>Application Kit</code> 里 <code>NSAttributedString</code> 类的载入方法（比如：<code>initWithFileURL:options:documentAttributes:error:</code>）。这些方法会尝试纯文本文件，然后返回使用的编码。可以用这些方法打开任意的文档。如果你的程序并不是专业处理文本的程序，这些方法也值得考虑。对于 <code>Foundation</code> 级别的工具，或者不是自然语言的文本来说，这些方法可能不太合适。</li>
 </ol>
-<p>网络传输文本应该UTF-8编码, 除非有特别的需要只能用其他的编码需要向文件中写入文本, 需要使用 <code>writeToURL:atomically:encoding:error:</code>方法, 这个方法会在UTF-16或UTF-32编码文件上自动加上字节顺序标记. 它还会把文件的编码存储在名为 <code>com.apple.TextEncoding</code> 的扩展文件属性里</p>
+<p>网络传输文本应该 <code>UTF-8</code> 编码, 除非有特别的需要只能用其他的编码需要向文件中写入文本, 需要使用 <code>writeToURL:atomically:encoding:error:</code>方法, 这个方法会在 <code>UTF-16</code> 或 <code>UTF-32</code> 编码文件上自动加上字节顺序标记. 它还会把文件的编码存储在名为 <code>com.apple.TextEncoding</code> 的扩展文件属性里</p>
 <p>本文主要参考: <a href="https://objccn.io/issue-9-1/" target="_blank" rel="external">https://objccn.io/issue-9-1/</a></p>
 <p>其他链接:</p>
 <p><a href="http://www.cl.cam.ac.uk/~mgk25/ucs/utf-8-history.txt" target="_blank" rel="external">http://www.cl.cam.ac.uk/~mgk25/ucs/utf-8-history.txt</a></p>
@@ -234,7 +234,7 @@ Log:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.52772577.com/2016/08/05/unicode笔记/" data-id="cirhf48f500006y3iymue5593" class="article-share-link">Share</a>
+      <a data-url="http://www.52772577.com/2016/08/05/unicode笔记/" data-id="cis6ukbmx00004ys6drp15g50" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NSString/">NSString</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UTF-16/">UTF-16</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UTF-32/">UTF-32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UTF-8/">UTF-8</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unicode/">Unicode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unichar/">unichar</a></li></ul>
